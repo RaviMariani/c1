@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_BANDAS 3
+#define MAX_NOMES 5
+#define TAM_NOME 50
+
+int main() {
+    char bandas[MAX_BANDAS][TAM_NOME];
+    char integrantes[MAX_BANDAS][MAX_NOMES][TAM_NOME];
+
+    // Recebendo nomes das bandas
+    for (int i = 0; i < MAX_BANDAS; i++) {
+        printf("Digite o nome da banda %d: ", i + 1);
+        scanf("%s", bandas[i]);
+        
+        // Recebendo nomes dos integrantes para cada banda
+        for (int j = 0; j < MAX_NOMES; j++) {
+            printf("Digite o nome do integrante %d da banda %s: ", j + 1, bandas[i]);
+            scanf("%s", integrantes[i][j]);
+        }
+    }
+
+    // Mostrando os resultados
+    printf("\n=== Bandas e Integrantes ===\n");
+    for (int i = 0; i < MAX_BANDAS; i++) {
+        printf("Banda: %s\n", bandas[i]);
+        printf("Integrantes:\n");
+        for (int j = 0; j < MAX_NOMES; j++) {
+            printf("- %s\n", integrantes[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
